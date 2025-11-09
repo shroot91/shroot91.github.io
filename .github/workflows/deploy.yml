@@ -1,0 +1,26 @@
+name: Deploy Jaspr to GitHub Pages
+
+on:
+  push:
+    branches: [ devfolio ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Install Jaspr
+        run: dart pub global activate jaspr_cli
+
+      - name: Build Jaspr app
+        run: jaspr build --no-daemon
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/jaspr
