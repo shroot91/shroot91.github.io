@@ -3,6 +3,7 @@ import 'dart:js_interop';
 
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_riverpod/jaspr_riverpod.dart';
+import 'package:my_website/components/header.dart';
 import 'package:my_website/pages/skills_section.dart';
 import 'package:my_website/pages/work_section/work_section.dart';
 import 'package:universal_web/web.dart' as web;
@@ -154,7 +155,7 @@ class SectionIndicatorState extends State<SectionIndicator> with VisibilityObser
   static const List<SectionWithID> sections = [
     (id: 'hero', label: 'Home', position: 0), // 'hero' is for the top of the page
     (id: 'about', label: 'About', position: 20),
-    (id: 'academic',label:'Academic',position :40 ),
+    (id: 'academic', label: 'Academic', position: 40),
     (id: 'work', label: 'Work', position: 60),
     (id: 'skills', label: 'Skills', position: 80),
     (id: 'contact', label: 'Contact', position: 100),
