@@ -8,9 +8,9 @@ import 'package:jaspr/server.dart';
 
 // Imports the [App] component.
 import 'app.dart';
+import 'constants/jaspr_options.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
-import 'jaspr_options.dart';
 
 void main() {
   // Initializes the server environment with the generated default options.

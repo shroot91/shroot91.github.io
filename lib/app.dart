@@ -3,8 +3,6 @@ import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 import 'package:my_website/pages/blogs.dart';
 import 'package:my_website/pages/packages.dart';
-import 'package:my_website/pages/view_cv_page.dart';
-
 
 import 'components/header.dart';
 import 'pages/home.dart';
@@ -32,11 +30,6 @@ class App extends StatelessComponent {
                   path: '/',
                   title: 'Home',
                   builder: (context, state) => const Home(),
-                ),
-                Route(
-                  path: '/cv',
-                  title: 'About',
-                  builder: (context, state) => ViewCvPage(),
                 ),
               ],
             ),

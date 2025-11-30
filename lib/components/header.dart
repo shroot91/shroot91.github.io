@@ -1,7 +1,9 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
+import 'package:jaspr_riverpod/jaspr_riverpod.dart';
 import '../constants/theme.dart';
+import '../providers/theme_provider.dart';
 
 class Header extends StatelessComponent {
   const Header({super.key});
@@ -9,6 +11,7 @@ class Header extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     var activePath = context.url;
+    final isDark = context.watch(themeProvider) == ThemeMode.dark;
 
     return header([
       nav([
@@ -19,6 +22,13 @@ class Header extends StatelessComponent {
           div(classes: activePath == route.path ? 'active' : null, [
             Link(to: route.path, child: text(route.label)),
           ]),
+        div(classes: 'theme-toggle', [
+          button(
+            events: {'click': (e) => context.read(themeProvider.notifier).toggle()},
+            classes: isDark ? 'dark' : '',
+            [text(isDark ? '☀' : '☾')],
+          ),
+        ]),
       ]),
     ]);
   }
@@ -35,7 +45,7 @@ class Header extends StatelessComponent {
         css('&').styles(
           display: Display.flex,
           height: 3.em,
-          radius: BorderRadius.all(Radius.circular(10.px)), 
+          radius: BorderRadius.all(Radius.circular(10.px)),
           overflow: Overflow.clip,
           justifyContent: JustifyContent.spaceBetween,
           backgroundColor: primaryColor,
@@ -64,7 +74,28 @@ class Header extends StatelessComponent {
             radius: BorderRadius.circular(1.px),
             backgroundColor: Colors.white,
           ),
-        ])
+        ]),
+      ]),
+      css('div.theme-toggle', [
+        css('&').styles(
+          display: Display.flex,
+          alignItems: AlignItems.center,
+          padding: Padding.symmetric(horizontal: 1.em),
+        ),
+        css('button', [
+          css('&').styles(
+            cursor: Cursor.pointer,
+            backgroundColor: Colors.transparent,
+            border: Border.unset,
+            color: Colors.white,
+            fontSize: 1.5.em,
+            padding: Padding.all(0.2.em),
+            transition: Transition('transform', duration: 300, curve: Curve.easeOut),
+          ),
+          css('&:hover').styles(
+            transform: Transform.scale(1.1),
+          ),
+        ]),
       ]),
     ]),
   ];

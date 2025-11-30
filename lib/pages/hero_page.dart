@@ -57,11 +57,13 @@ class _HeroHeadline extends StatelessComponent {
       classes: "space-y-6",
       [
         h1(
-          classes: "text-6xl md:text-8xl font-light text-gray-100 leading-none tracking-tight",
+          classes:
+              "text-6xl md:text-8xl font-light text-gray-100 leading-none tracking-tight",
           [text("Luciano Mansilla")],
         ),
         p(
-          classes: "text-xl md:text-2xl text-gray-600 max-w-3xl leading-relaxed font-light",
+          classes:
+              "text-xl md:text-2xl text-gray-600 max-w-3xl leading-relaxed font-light",
           [
             text(
               "Building performant, cross-platform applications with Flutter and Dart for Android, iOS, Windows, and Web.",
@@ -90,25 +92,13 @@ class _HeroActions extends StatelessComponent {
       classes: "flex flex-wrap gap-4 pt-8 justify-center md:justify-start",
       [
         button(
-          events: events(onClick: () => ScrollService().scrollToSection('work')),
+          events:
+              events(onClick: () => ScrollService().scrollToSection('work')),
           classes:
               "group flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium bg-blue-600 text-white transition-all duration-300 hover:bg-blue-700 border-2 border-transparent hover:border-blue-800",
           [
             Briefcase(height: 18.px, width: 18.px),
             span([text("View Work")]),
-          ],
-        ),
-        button(
-          events: events(
-            onClick: () {
-              Router.of(context).push('/cv');
-            },
-          ),
-          classes:
-              "group flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium bg-gray-100 text-gray-800 transition-all duration-300 hover:bg-gray-200 border-2 border-transparent hover:border-gray-300",
-          [
-            FileText(height: 16.px, width: 16.px),
-            span([text("View CV")]),
           ],
         ),
       ],
@@ -122,7 +112,8 @@ class _HeroMetaInfo extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(
-      classes: "flex items-center justify-center md:justify-start space-x-6 pt-8",
+      classes:
+          "flex items-center justify-center md:justify-start space-x-6 pt-8",
       [
         div(classes: "flex items-center space-x-2 text-sm text-gray-600", [
           div(classes: "w-2 h-2 bg-green-500 rounded-full animate-pulse", []),
